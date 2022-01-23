@@ -1,9 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import MenuContext from "../../context/MenuContext";
-import ItemsRecipe from "../itemsMeat/itemsRecipe";
+import { Col, Container, Row, Image } from "react-bootstrap";
 
 export default function Menu() {
-  const { menu, setMenu } = useContext(MenuContext);
+  //extrayendo datos del hook menu
+  const { menu, setmenu } = useContext(MenuContext);
+  console.log("data: ", menu);
 
   useEffect(() => {
     console.log("renderizandondo menu");
@@ -11,12 +13,20 @@ export default function Menu() {
 
   return (
     <>
-      {menu.map(({ title, id, img }) => {
+      {menu.map(({ title, img, id }) => {
         return (
-          <div>
-            <img src={img} alt={img} />
-            <h4>{title}</h4>
-          </div>
+          <>
+            <Container>
+              <Row className="mb-2">
+                <Col xs="4" className="mr-2" key={id}>
+                  <Image src={img} alt={img} style={{ width: "120px" }} />
+                </Col>
+                <Col xs="auto">
+                  <h6>{title}</h6>
+                </Col>
+              </Row>
+            </Container>
+          </>
         );
       })}
     </>

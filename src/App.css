@@ -3,8 +3,12 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  width: 180px;
+}
+
+.App-logo img {
+  width: 100%;
+  object-fit: cover;
 }
 
 @media (prefers-reduced-motion: no-preference) {

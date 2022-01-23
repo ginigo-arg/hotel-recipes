@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useState, useEffect } from "react";
+import { Form, InputGroup, Row, Col, Container } from "react-bootstrap";
 import { useLocation } from "wouter";
 
 export default function SearchRecipes() {
@@ -16,16 +18,19 @@ export default function SearchRecipes() {
   };
 
   return (
-    <header>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          onChange={handleChange}
-          placeholder="Search Recipes"
-          value={keyword}
-        ></input>
-        <button>Buscar</button>
-      </form>
-    </header>
+    <Container className="mb-4">
+      <Form onSubmit={handleSubmit}>
+        <Row className="align-items-center">
+          <Col xs="12">
+            <Form.Control
+              type="text"
+              onChange={handleChange}
+              placeholder="Search Recipes..."
+              value={keyword}
+            ></Form.Control>
+          </Col>
+        </Row>
+      </Form>
+    </Container>
   );
 }

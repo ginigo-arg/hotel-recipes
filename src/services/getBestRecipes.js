@@ -1,8 +1,8 @@
 import axios from "axios";
 import { URL, API_KEY } from "./setting";
 
-export const getRecipes = async ({ keyword = "french fries", limit = "5" }) => {
-  const apiURL = `${URL}/recipes/complexSearch?query=${keyword}&number=${limit}&addRecipeInformation=true&apiKey=${API_KEY}`;
+export const getBestRecipes = async ({ limit = "5" }) => {
+  const apiURL = `${URL}/recipes/complexSearch?number=${limit}&apiKey=${API_KEY}&addRecipeInformation=true`;
   const resp = await axios(apiURL);
   const { results } = resp.data;
   const recipes = results.map((recipe) => {
@@ -13,9 +13,6 @@ export const getRecipes = async ({ keyword = "french fries", limit = "5" }) => {
       summary: recipe.summary,
       healthScore: recipe.healthScore,
       readyInMinutes: recipe.readyInMinutes,
-      servings: recipe.servings,
-      vegan: recipe.vegan,
-      pricePerServing: recipe.pricePerServing,
     };
   });
   return recipes;
