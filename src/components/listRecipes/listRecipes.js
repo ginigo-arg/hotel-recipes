@@ -1,27 +1,39 @@
 import React from "react";
 import ItemsRecipe from "../itemsMeat/itemsRecipe";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
+import "./listRecipes.css";
 
 export default function ListRecipes({ recipes }) {
   console.log("recipes: ", recipes);
   return (
     <>
-      <Container>
-        <div>
-          {recipes.map(({ title, id, healthScore, img }) => {
-            return (
-              <ItemsRecipe
-                title={title}
-                id={id}
-                healthScore={healthScore}
-                img={img}
-                key={id}
-              />
-            );
-          })}
-        </div>
-      </Container>
+      {recipes.map(
+        ({
+          id,
+          img,
+          title,
+          summary,
+          healthScore,
+          readyInMinutes,
+          servings,
+          vegan,
+          pricePerServing,
+        }) => {
+          return (
+            <ItemsRecipe
+              id={id}
+              img={img}
+              title={title}
+              summary={summary}
+              healthScore={healthScore}
+              readyInMinutes={readyInMinutes}
+              servings={servings}
+              vegan={vegan}
+              pricePerServing={pricePerServing}
+              key={id}
+            />
+          );
+        }
+      )}
     </>
   );
 }

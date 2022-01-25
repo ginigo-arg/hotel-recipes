@@ -1,7 +1,7 @@
 import axios from "axios";
 import { URL, API_KEY } from "./setting";
 
-export const getRecipes = async ({ keyword = "french fries", limit = "5" }) => {
+export const getRecipes = async ({ keyword = "french fries", limit = "6" }) => {
   const apiURL = `${URL}/recipes/complexSearch?query=${keyword}&number=${limit}&addRecipeInformation=true&apiKey=${API_KEY}`;
   const resp = await axios(apiURL);
   const { results } = resp.data;

@@ -8,8 +8,6 @@ export const getBestRecipes = async ({ limit = "5" }) => {
   const recipes = results.map((recipe) => {
     return {
       id: recipe.id,
-      img: recipe.image,
-      title: recipe.title,
       summary: recipe.summary,
       healthScore: recipe.healthScore,
       readyInMinutes: recipe.readyInMinutes,

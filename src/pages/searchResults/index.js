@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ListRecipes from "../../components/listRecipes/listRecipes";
 import { getRecipes } from "../../services/getRecipes";
-
+import "./listRecipes.css";
 export default function SearchResults({ params }) {
   const { keyword } = params;
   console.log(params);
@@ -18,7 +18,9 @@ export default function SearchResults({ params }) {
 
   return (
     <>
-      <ListRecipes recipes={recipes} />
+      <div className="container Recipe-result">
+        <ListRecipes recipes={recipes} />
+      </div>
     </>
   );
 }

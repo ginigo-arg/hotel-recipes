@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useState, useEffect } from "react";
-import { Form, InputGroup, Row, Col, Container } from "react-bootstrap";
 import { useLocation } from "wouter";
+import "./searchRecipes.css";
 
 export default function SearchRecipes() {
   const [path, pushLocation] = useLocation();
@@ -11,26 +11,27 @@ export default function SearchRecipes() {
   const handleSubmit = (e) => {
     e.preventDefault();
     pushLocation(`/search/${keyword}`);
-    console.log(keyword);
+    setKeyword("");
   };
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };
 
   return (
-    <Container className="mb-4">
-      <Form onSubmit={handleSubmit}>
-        <Row className="align-items-center">
-          <Col xs="12">
-            <Form.Control
+    <div className="container">
+      <div className="row d-flex justify-content-center">
+        <div className="col-6">
+          <form onSubmit={handleSubmit}>
+            <input
+              className="form-control"
               type="text"
               onChange={handleChange}
               placeholder="Search Recipes..."
               value={keyword}
-            ></Form.Control>
-          </Col>
-        </Row>
-      </Form>
-    </Container>
+            ></input>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
