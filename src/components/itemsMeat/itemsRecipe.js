@@ -2,6 +2,7 @@ import { useContext } from "react";
 import MenuContext from "../../context/MenuContext";
 import "./itemRecipe.css";
 import parse from "html-react-parser";
+import swal from "sweetalert";
 
 export default function ItemsRecipe({
   id,
@@ -17,21 +18,33 @@ export default function ItemsRecipe({
   const { menu, setMenu } = useContext(MenuContext);
 
   const handleAddMenu = () => {
-    const newItem = {
-      id,
-      img,
-      title,
-      summary,
-      healthScore,
-      readyInMinutes,
-      servings,
-      vegan,
-      pricePerServing,
-    };
-    setMenu([...menu, newItem]);
-    console.log("agregando item");
-    console.log("menu:", menu);
+    if (menu.length < 4) {
+      const newItem = {
+        id,
+        img,
+        title,
+        summary,
+        healthScore,
+        readyInMinutes,
+        servings,
+        vegan,
+        pricePerServing,
+      };
+
+      setMenu([...menu, newItem]);
+    } else {
+      swal({
+        title: "We're Sorry",
+        text: "This Menus is Empty",
+        icon: "error",
+        button: {
+          text: "Ok",
+          className: "btn btn-success btn-alert",
+        },
+      });
+    }
   };
+
   return (
     <>
       <div className="container mt-3 box ">

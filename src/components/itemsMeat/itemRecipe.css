@@ -1,5 +1,5 @@
 .Card-item {
-  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -6px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -26,6 +26,10 @@
 }
 .Btn-addMenu {
   font-size: 12px !important;
+}
+
+.swal-button.swal-button--confirm:hover {
+  background-color: green !important;
 }
 
 @media (min-width: 576px) {

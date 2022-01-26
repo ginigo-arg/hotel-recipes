@@ -13,7 +13,7 @@ export default function TotalsMenu() {
         <h3>Totales</h3>
         <h6>Total Health: {totalScore}</h6>
         <h6>Ready In Aprox: {totalMinutes / items}min.</h6>
-        <h6>Total Price: {totalPrice}</h6>
+        <h6>Total Price: USD${totalPrice}</h6>
       </div>
     </>
   );

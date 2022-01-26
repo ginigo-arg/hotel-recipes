@@ -39,9 +39,22 @@ export default function ItemMenu({
           >
             <div className="ms-2 me-auto" key={id}>
               <div className="fw-bold">{title}</div>
-              Cras justo odio
+              <div>
+                <span className="badge rounded-pill bg-success me-2">
+                  Health {healthScore}
+                </span>
+                {parse(
+                  `<span className="badge rounded-pill bg-success me-2">vegan ${vegan}</span>`
+                )}
+                <span className="badge rounded-pill bg-success me-2">
+                  Ready in {readyInMinutes}
+                </span>
+                <span className="badge rounded-pill bg-success me-2">
+                  Servings {servings}
+                </span>
+              </div>
             </div>
-            <span className="badge bg-primary rounded-pill">14</span>
+            <span className="badge bg-success ">USD${pricePerServing}</span>
           </li>
         </ol>
       </MenuDataProvider>

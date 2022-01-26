@@ -1,5 +1,4 @@
 import ListRecipes from "../../components/listRecipes/listRecipes";
-import { MenuContextProvider } from "../../context/MenuContext";
 
 import { useRecipes } from "../../hooks/useRecipes";
 import "./listRecipes.css";
