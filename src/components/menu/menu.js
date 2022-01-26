@@ -1,32 +1,63 @@
 import React, { useContext, useEffect } from "react";
 import MenuContext from "../../context/MenuContext";
+import MenuData from "../../context/MenuData";
+import ItemMenu from "../itemMenu/itemMenu";
 
-export default function Menu() {
+export default function MenuList() {
   //extrayendo datos del hook menu
-  const { menu, setmenu } = useContext(MenuContext);
-
+  const { menu } = useContext(MenuContext);
+  const { setData } = useContext(MenuData);
+  let totalScore = 0;
+  let totalPrice = 0;
+  let totalMinutes = 0;
+  let items = 0;
   useEffect(() => {
     console.log("renderizandondo menu");
+    menu.forEach(({ healthScore, pricePerServing, readyInMinutes }) => {
+      totalScore += healthScore;
+      totalPrice += pricePerServing;
+      totalMinutes += readyInMinutes;
+      items++;
+      setData({
+        totalScore: totalScore,
+        totalPrice: totalPrice,
+        totalMinutes: totalMinutes,
+        items: items,
+      });
+    });
   }, [menu]);
 
   return (
     <>
-      {menu.map(({ title, img, id }) => {
-        return (
-          <>
-            <div className="container">
-              <div className="row">
-                <div className="col" key={id}>
-                  <img src={img} alt={img} style={{ width: "120px" }} />
-                </div>
-                <div className="col">
-                  <h6>{title}</h6>
-                </div>
-              </div>
-            </div>
-          </>
-        );
-      })}
+      {menu.map(
+        ({
+          id,
+          img,
+          title,
+          healthScore,
+          readyInMinutes,
+          servings,
+          vegan,
+          pricePerServing,
+        }) => {
+          "";
+          return (
+            <>
+              <ItemMenu
+                id={id}
+                img={img}
+                title={title}
+                servings={servings}
+                pricePerServing={pricePerServing}
+                vegan={vegan}
+                healthScore={healthScore}
+                readyInMinutes={readyInMinutes}
+                key={id}
+              />
+            </>
+          );
+        }
+      )}
     </>
   );
 }

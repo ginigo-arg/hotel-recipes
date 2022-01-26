@@ -2,7 +2,7 @@ import { useContext } from "react";
 import MenuContext from "../../context/MenuContext";
 import "./itemRecipe.css";
 import parse from "html-react-parser";
-import { Parser } from "htmlparser2";
+
 export default function ItemsRecipe({
   id,
   img,
@@ -14,7 +14,6 @@ export default function ItemsRecipe({
   vegan,
   pricePerServing,
 }) {
-  console.log("vegan: ", vegan);
   const { menu, setMenu } = useContext(MenuContext);
 
   const handleAddMenu = () => {
@@ -30,8 +29,8 @@ export default function ItemsRecipe({
       pricePerServing,
     };
     setMenu([...menu, newItem]);
-    console.log("handlemenu: ", ...menu);
-    localStorage.setItem("menu", JSON.stringify(...menu));
+    console.log("agregando item");
+    console.log("menu:", menu);
   };
   return (
     <>

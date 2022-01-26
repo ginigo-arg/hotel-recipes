@@ -20,7 +20,7 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="navbar navbar-light bg-success navbar-expand-lg my-4  rounded">
+      <nav className="navbar navbar-light bg-success navbar-expand-lg mt-4  rounded">
         <div className="container">
           <div className="row w-100">
             <div className="col-4 App-logo">
@@ -30,7 +30,7 @@ export default function NavBar() {
             </div>
             <div className="col-4 App-menu">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
-                <li className="nav-item position-relative">
+                <li className="nav-item position-relative me-2">
                   <Link
                     to="/"
                     className="nav-link"
@@ -40,18 +40,18 @@ export default function NavBar() {
                     <FontAwesomeIcon icon={faHome} className="me-1" />
                     Home
                   </Link>
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
                     {menu.length}
-                    <span class="visually-hidden">unread messages</span>
+                    <span className="visually-hidden">unread messages</span>
                   </span>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item me-2">
                   <Link to="" className="nav-link" href="#">
                     <FontAwesomeIcon icon={faConciergeBell} className="me-1" />
                     Menu
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item me-2">
                   <Link to="" className="nav-link" href="#">
                     <FontAwesomeIcon icon={faSearch} className="me-1" />
                     Searchs

@@ -18,7 +18,7 @@ export default function SearchRecipes() {
   };
 
   return (
-    <div className="container">
+    <div className="container my-4">
       <div className="row d-flex justify-content-center">
         <div className="col-6">
           <form onSubmit={handleSubmit}>
