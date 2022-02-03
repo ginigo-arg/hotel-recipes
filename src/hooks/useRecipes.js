@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { getRecipes } from "../services/getRecipes";
 
-export function useRecipes({ keyword }) {
+export function useRecipes({ keyword, limit }) {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(
     function () {
-      getRecipes({ keyword }).then((recipes) => {
+      getRecipes({ keyword, limit }).then((recipes) => {
         setRecipes(recipes);
       });
     },
-    [keyword]
+    [keyword, limit]
   );
 
   return { recipes };

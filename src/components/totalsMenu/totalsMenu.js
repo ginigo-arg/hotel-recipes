@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import MenuContext from "../../context/MenuContext";
+
 import MenuData from "../../context/MenuData";
 
 export default function TotalsMenu() {

@@ -60,7 +60,9 @@ export default function NavBar() {
               </ul>
             </div>
             <div className="col-4 App-session d-flex justify-content-center">
-              <button className="btn btn-dark">Log in</button>
+              <Link to="/login">
+                <button className="btn btn-dark">Log in</button>
+              </Link>
             </div>
           </div>
         </div>
