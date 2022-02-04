@@ -7,10 +7,11 @@ import {
   faHome,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "wouter";
 import MenuContext from "../../context/MenuContext";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function NavBar() {
+  const navigate = useNavigate();
   const { menu } = useContext(MenuContext);
   console.log("data navbar: ", menu.length);
 
@@ -18,11 +19,16 @@ export default function NavBar() {
     console.log("render navbar");
   }, [menu]);
 
+  const handleLoginOut = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <>
       <nav className="navbar navbar-light bg-success navbar-expand-lg mt-4  rounded">
-        <div className="container">
-          <div className="row w-100">
+        <div className="container d-flex justify-content-center ">
+          <div className="row w-100 sm:d-flex flex-direction-column">
             <div className="col-4 App-logo">
               <Link to="/">
                 <img src={Logo} alt="app-logo" />
@@ -31,12 +37,7 @@ export default function NavBar() {
             <div className="col-4 App-menu">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
                 <li className="nav-item position-relative me-2">
-                  <Link
-                    to="/"
-                    className="nav-link"
-                    aria-current="page"
-                    href="#"
-                  >
+                  <Link to="/" className="nav-link" aria-current="page">
                     <FontAwesomeIcon icon={faHome} className="me-1" />
                     Home
                   </Link>
@@ -46,23 +47,27 @@ export default function NavBar() {
                   </span>
                 </li>
                 <li className="nav-item me-2">
-                  <Link to="" className="nav-link" href="#">
+                  <Link to="" className="nav-link">
                     <FontAwesomeIcon icon={faConciergeBell} className="me-1" />
                     Menu
                   </Link>
                 </li>
                 <li className="nav-item me-2">
-                  <Link to="" className="nav-link" href="#">
+                  <Link to="" className="nav-link">
                     <FontAwesomeIcon icon={faSearch} className="me-1" />
                     Searchs
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="col-4 App-session d-flex justify-content-center">
-              <Link to="/login">
-                <button className="btn btn-dark">Log in</button>
-              </Link>
+            <div className="col-4 App-session d-flex justify-content-end pe-5">
+              <button
+                type="button"
+                className="btn btn-outline-warning"
+                onClick={handleLoginOut}
+              >
+                Log out
+              </button>
             </div>
           </div>
         </div>
