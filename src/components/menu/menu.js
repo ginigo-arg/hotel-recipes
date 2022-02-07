@@ -4,7 +4,6 @@ import MenuData from "../../context/MenuData";
 import ItemMenu from "../itemMenu/itemMenu";
 
 export default function MenuList() {
-  //extrayendo datos del hook menu
   const { menu } = useContext(MenuContext);
   const { setData } = useContext(MenuData);
   let totalScore = 0;
@@ -12,7 +11,7 @@ export default function MenuList() {
   let totalMinutes = 0;
   let items = 0;
   useEffect(() => {
-    console.log("renderizandondo menu");
+    console.log("render menu list");
     menu.forEach(({ healthScore, pricePerServing, readyInMinutes }) => {
       totalScore += healthScore;
       totalPrice += pricePerServing;

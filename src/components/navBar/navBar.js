@@ -27,8 +27,8 @@ export default function NavBar() {
   return (
     <>
       <nav className="navbar navbar-light bg-success navbar-expand-lg mt-4  rounded">
-        <div className="container d-flex justify-content-center ">
-          <div className="row w-100 sm:d-flex flex-direction-column">
+        <div className="container d-flex justify-content-center d-sm-flex flex- ">
+          <div className="row w-100">
             <div className="col-4 App-logo">
               <Link to="/">
                 <img src={Logo} alt="app-logo" />
