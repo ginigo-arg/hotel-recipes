@@ -4,12 +4,12 @@ import { useRecipes } from "../../hooks/useRecipes";
 import "./listRecipes.css";
 import { useParams } from "react-router";
 import SearchRecipes from "../../components/searchRecipes/searchRecipes";
+import Spinner from "../../components/Spinner/Spinner";
 
 export default function SearchResults() {
   const { keyword } = useParams();
-  const { recipes } = useRecipes({ keyword });
+  const { recipes, loading } = useRecipes({ keyword });
   console.log("keyword:", keyword);
-
   return (
     <>
       <div className="container">
@@ -18,8 +18,8 @@ export default function SearchResults() {
         </header>
       </div>
       <SearchRecipes />
-      <div className="container Recipe-result">
-        <ListRecipes recipes={recipes} />
+      <div className="container Recipe-result d-flex justify-content-center">
+        {loading ? <Spinner /> : <ListRecipes recipes={recipes} />}
       </div>
     </>
   );
