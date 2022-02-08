@@ -38,7 +38,7 @@ export default function LoginForm() {
       </form>
       {user.data.error && (
         <div className="alert alert-danger mt-3 text-center" role="alert">
-          <span>User or Password incorrect</span>
+          <span>Usser or Password incorrect</span>
         </div>
       )}
     </>
