@@ -15,4 +15,10 @@ code {
 
 h3 {
   font-size: 18px !important;
+  color: #000;
+}
+
+p {
+  font-weight: 500;
+  color: rgb(83, 83, 83);
 }

@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import MenuContext from "../../context/MenuContext";
+import DetailContext, { DetailContextProvider } from "../../context/DetailContext"
 import "./itemRecipe.css";
 import parse from "html-react-parser";
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 export default function ItemsRecipe({
   id,
@@ -16,6 +18,7 @@ export default function ItemsRecipe({
   pricePerServing,
 }) {
   const { menu, setMenu } = useContext(MenuContext);
+  const {detail, setDetail} = useContext(DetailContext)
 
   const handleAddMenu = () => {
     if (menu.length < 4) {
@@ -45,8 +48,24 @@ export default function ItemsRecipe({
     }
   };
 
+  const handleDetail = () =>{
+    const details = { id,
+      img,
+      title,
+      summary,
+      healthScore,
+      readyInMinutes,
+      servings,
+      vegan,
+      pricePerServing,}
+
+      setDetail(details)
+      console.log("detail item:", details)
+  }
+
   return (
     <>
+   
       <div className="container mt-3 box ">
         <div className="row Card-item">
           <div
@@ -72,6 +91,10 @@ export default function ItemsRecipe({
             </div>
             <div className="Card-text">{parse(`<p>${summary}</p>`)}</div>
             <div className="Card-footer mt-3 mb-2 d-flex justify-content-end">
+              <Link to={`/detail/${title}/${id}`}>
+                <button onClick={handleDetail} className="btn btn-outline-success me-2">Detail</button>
+              
+              </Link>
               <button
                 type="button"
                 className="btn btn-success Btn-addMenu"
@@ -84,6 +107,7 @@ export default function ItemsRecipe({
           </div>
         </div>
       </div>
+    
     </>
   );
 }

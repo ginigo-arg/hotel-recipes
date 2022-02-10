@@ -1,5 +1,5 @@
 import React from "react";
-import ItemsRecipe from "../itemsMeat/itemsRecipe";
+import ItemsRecipe from "../itemsRecipe/itemsRecipe";
 import "./listRecipes.css";
 
 export default function ListRecipes({ recipes }) {

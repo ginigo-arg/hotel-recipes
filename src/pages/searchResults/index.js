@@ -9,7 +9,6 @@ import Spinner from "../../components/Spinner/Spinner";
 export default function SearchResults() {
   const { keyword } = useParams();
   const { recipes, loading } = useRecipes({ keyword });
-  console.log("keyword:", keyword);
   return (
     <>
       <div className="container">

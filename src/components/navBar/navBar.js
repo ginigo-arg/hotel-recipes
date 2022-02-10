@@ -53,7 +53,7 @@ export default function NavBar() {
                   </Link>
                 </li>
                 <li className="nav-item me-2">
-                  <Link to="" className="nav-link">
+                  <Link to="/search/" className="nav-link">
                     <FontAwesomeIcon icon={faSearch} className="me-1" />
                     Searchs
                   </Link>

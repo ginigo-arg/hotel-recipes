@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { Route } from "wouter";
 import { MenuContextProvider } from "./context/MenuContext";
 import { MenuDataProvider } from "./context/MenuData";
@@ -14,15 +8,25 @@ import SearchResults from "./pages/searchResults";
 import Login from "./pages/Login/Login";
 import "./App.css";
 import RequireJwt from "./components/PrivateRoutes/PrivateRoutes";
+import DetailPage from "./pages/DetailRecipe/Index";
+import { DetailContextProvider } from "./context/DetailContext";
 function App() {
   return (
     <>
       <MenuContextProvider>
         <MenuDataProvider>
+          <DetailContextProvider>
           <BrowserRouter>
             <Routes>
               <Route path="/login" element={<Login />} />
-              <Route path="/search/:keyword" element={<SearchResults />} />
+              <Route
+                path="/search/:keyword"
+                element={
+                  <RequireJwt>
+                    <SearchResults />
+                  </RequireJwt>
+                }
+              />
               <Route
                 path="/"
                 element={
@@ -31,8 +35,17 @@ function App() {
                   </RequireJwt>
                 }
               />
+              <Route
+                path="/detail/:name/:id"
+                element={
+                  <RequireJwt>
+                    <DetailPage />
+                    </RequireJwt>
+                }
+              />
             </Routes>
           </BrowserRouter>
+            </DetailContextProvider>
         </MenuDataProvider>
       </MenuContextProvider>
     </>
