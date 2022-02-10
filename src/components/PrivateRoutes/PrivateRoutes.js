@@ -4,7 +4,7 @@ export default function RequireJwt({ children }) {
   const jwt = localStorage.getItem("token");
   const location = useLocation();
   console.log("jwtApp:", jwt);
-  console.log("location:", location);
+
 
   if (!jwt) {
     return <Navigate to="/login" />;

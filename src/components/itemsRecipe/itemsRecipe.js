@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import MenuContext from "../../context/MenuContext";
 import DetailContext, { DetailContextProvider } from "../../context/DetailContext"
 import "./itemRecipe.css";
 import parse from "html-react-parser";
 import swal from "sweetalert";
-import { Link } from "react-router-dom";
+import {Link, useLocation} from "react-router-dom"
+
 
 export default function ItemsRecipe({
   id,
@@ -18,7 +19,10 @@ export default function ItemsRecipe({
   pricePerServing,
 }) {
   const { menu, setMenu } = useContext(MenuContext);
-  const {detail, setDetail} = useContext(DetailContext)
+  const {detail, setDetail, setLocation} = useContext(DetailContext)
+  
+  const location = useLocation()
+  console.log("back:", location.pathname)
 
   const handleAddMenu = () => {
     if (menu.length < 4) {
@@ -60,7 +64,8 @@ export default function ItemsRecipe({
       pricePerServing,}
 
       setDetail(details)
-      console.log("detail item:", details)
+     setLocation(location)
+      console.log('locacion:',location)
   }
 
   return (
