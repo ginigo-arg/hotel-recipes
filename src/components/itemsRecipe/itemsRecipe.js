@@ -7,6 +7,7 @@ import swal from "sweetalert";
 import {Link, useLocation} from "react-router-dom"
 
 
+
 export default function ItemsRecipe({
   id,
   img,
@@ -20,9 +21,7 @@ export default function ItemsRecipe({
 }) {
   const { menu, setMenu } = useContext(MenuContext);
   const {detail, setDetail, setLocation} = useContext(DetailContext)
-  
   const location = useLocation()
-  console.log("back:", location.pathname)
 
   const handleAddMenu = () => {
     if (menu.length < 4) {
@@ -64,8 +63,7 @@ export default function ItemsRecipe({
       pricePerServing,}
 
       setDetail(details)
-     setLocation(location)
-      console.log('locacion:',location)
+      setLocation(location)
   }
 
   return (
@@ -97,7 +95,7 @@ export default function ItemsRecipe({
             <div className="Card-text">{parse(`<p>${summary}</p>`)}</div>
             <div className="Card-footer mt-3 mb-2 d-flex justify-content-end">
               <Link to={`/detail/${title}/${id}`}>
-                <button onClick={handleDetail} className="btn btn-outline-success me-2">Detail</button>
+                <button onClick={handleDetail} type="button" className="btn btn-outline-success me-2" data-bs-toggle="tooltip" data-bs-placement="bottom $tooltip-bg: $black" title="Click here to see more">Detail</button>
               
               </Link>
               <button

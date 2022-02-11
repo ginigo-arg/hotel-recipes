@@ -16,7 +16,7 @@ export default function NavBar() {
   console.log("data navbar: ", menu.length);
 
   useEffect(() => {
-    console.log("render navbar");
+  
   }, [menu]);
 
   const handleLoginOut = () => {
@@ -40,17 +40,17 @@ export default function NavBar() {
                   <Link to="/" className="nav-link" aria-current="page">
                     <FontAwesomeIcon icon={faHome} className="me-1" />
                     Home
+                  </Link> 
+                </li>
+                <li className="nav-item position-relative me-2">
+                  <Link to="/menu" className="nav-link">
+                    <FontAwesomeIcon icon={faConciergeBell} className="me-1" />
+                    Menu
                   </Link>
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
                     {menu.length}
                     <span className="visually-hidden">unread messages</span>
                   </span>
-                </li>
-                <li className="nav-item me-2">
-                  <Link to="" className="nav-link">
-                    <FontAwesomeIcon icon={faConciergeBell} className="me-1" />
-                    Menu
-                  </Link>
                 </li>
                 <li className="nav-item me-2">
                   <Link to="/search/" className="nav-link">

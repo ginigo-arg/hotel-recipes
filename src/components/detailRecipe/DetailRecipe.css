@@ -1,0 +1,8 @@
+span p a {
+    color: #535353 !important;
+    text-decoration: none;
+}
+
+span p a:hover {
+    cursor: default;
+}

@@ -10,6 +10,7 @@ import "./App.css";
 import RequireJwt from "./components/PrivateRoutes/PrivateRoutes";
 import DetailPage from "./pages/DetailRecipe/Index";
 import { DetailContextProvider } from "./context/DetailContext";
+import Menu from "./pages/Menu";
 function App() {
   return (
     <>
@@ -32,6 +33,14 @@ function App() {
                 element={
                   <RequireJwt>
                     <Home />
+                  </RequireJwt>
+                }
+              />
+              <Route
+                path="/menu"
+                element={
+                  <RequireJwt>
+                    <Menu />
                   </RequireJwt>
                 }
               />

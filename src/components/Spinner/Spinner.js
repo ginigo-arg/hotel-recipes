@@ -1,10 +1,10 @@
 export default function Spinner({ loading }) {
   return (
     <div
-      class="spinner-border text-success d-flex justify-content-center text-alignt-center"
+      className="spinner-border text-success d-flex justify-content-center text-alignt-center"
       role="status"
     >
-      <span class="visually-hidden">Loading...</span>
+      <span className="visually-hidden">Loading...</span>
     </div>
   );
 }

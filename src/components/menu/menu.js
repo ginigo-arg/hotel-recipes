@@ -39,9 +39,8 @@ export default function MenuList() {
           vegan,
           pricePerServing,
         }) => {
-          "";
           return (
-            <>
+            <div key={id}>
               <ItemMenu
                 id={id}
                 img={img}
@@ -51,9 +50,9 @@ export default function MenuList() {
                 vegan={vegan}
                 healthScore={healthScore}
                 readyInMinutes={readyInMinutes}
-                key={id}
+               
               />
-            </>
+            </div>
           );
         }
       )}
