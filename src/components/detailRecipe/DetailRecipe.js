@@ -1,16 +1,19 @@
 
 import parse from "html-react-parser";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import DetailContext from "../../context/DetailContext"
 import MenuContext from "../../context/MenuContext"
 import { Link } from "react-router-dom";
 import "./DetailRecipe.css"
 import swal from 'sweetalert'
+import { Toast, ToastContainer } from "react-bootstrap";
+import Logo from '../../sponnacular-logo.png'
 
 export default function DetailRecipe() {
 const {menu, setMenu} = useContext(MenuContext)
 const {detail}=useContext(DetailContext)
 const {prevLocation, setLocation} = useContext(DetailContext)
+const [showPush, setShowPush] = useState(false)
 const { id,
   img,
   title,
@@ -52,7 +55,11 @@ const handleAddMenu = () => {
   }
 };
 
+
+const toggleShowPush = () => {setShowPush(!showPush)}
+
   return (
+    <>
     <div className="container my-4 w-75">
       <div className="row card border border-0">
           <div className="col-8 mb-4">
@@ -87,10 +94,27 @@ const handleAddMenu = () => {
             <Link to={`${prevLocation.pathname}`}>
             <button className="btn btn-outline-success me-2">Back</button>
             </Link>
-            <button className="btn btn-success" onClick={handleAddMenu}>AddToMenu</button>
+            <button type="button" id="liveToastBtn" className="btn btn-success" onClick={()=> {
+              handleAddMenu()
+              toggleShowPush()
+            }}>AddToMenu</button>
           </div>
-        </div>
-      
+        </div>         
     </div>
+    <ToastContainer className="position-fixed bottom-0 end-0 m-4" position="bottom-end">
+    <Toast show={showPush} onClose={toggleShowPush} >
+          <Toast.Header>
+            <img
+              src={Logo}
+              className="rounded me-2 w-25"
+              alt=""
+            />
+            <strong className="me-auto">Boot</strong>
+            <small>just now</small>
+          </Toast.Header>
+          <Toast.Body>Woohoo, you recipe has been add To Menu</Toast.Body>
+        </Toast>
+    </ToastContainer>
+    </>
   );
 }
