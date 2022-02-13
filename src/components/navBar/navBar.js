@@ -15,9 +15,7 @@ export default function NavBar() {
   const { menu } = useContext(MenuContext);
   console.log("data navbar: ", menu.length);
 
-  useEffect(() => {
-  
-  }, [menu]);
+  useEffect(() => {}, [menu]);
 
   const handleLoginOut = () => {
     localStorage.removeItem("token");
@@ -26,52 +24,57 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="navbar navbar-light bg-success navbar-expand-lg mt-4  rounded">
-        <div className="container d-flex justify-content-center d-sm-flex flex- ">
-          <div className="row w-100">
-            <div className="col-4 App-logo">
-              <Link to="/">
-                <img src={Logo} alt="app-logo" />
-              </Link>
-            </div>
-            <div className="col-4 App-menu">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
-                <li className="nav-item position-relative me-2">
-                  <Link to="/" className="nav-link" aria-current="page">
-                    <FontAwesomeIcon icon={faHome} className="me-1" />
-                    Home
-                  </Link> 
-                </li>
-                <li className="nav-item position-relative me-2">
-                  <Link to="/menu" className="nav-link">
-                    <FontAwesomeIcon icon={faConciergeBell} className="me-1" />
-                    Menu
-                  </Link>
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
-                    {menu.length}
-                    <span className="visually-hidden">unread messages</span>
-                  </span>
-                </li>
-                <li className="nav-item me-2">
-                  <Link to="/search/" className="nav-link">
-                    <FontAwesomeIcon icon={faSearch} className="me-1" />
-                    Searchs
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="col-4 App-session d-flex justify-content-end pe-5">
-              <button
-                type="button"
-                className="btn btn-outline-warning"
-                onClick={handleLoginOut}
-              >
-                Log out
-              </button>
+      <header>
+        <nav className="navbar navbar-light bg-success navbar-expand-lg mt-lg-4  rounded me-lg-5 ms-lg-5">
+          <div className="container d-flex justify-content-center">
+            <div className="row">
+              <div className="col-xs-12 col-lg-4 App-logo">
+                <Link to="/">
+                  <img src={Logo} alt="app-logo" />
+                </Link>
+              </div>
+              <div className="col-xs-12 col-md-12 col-lg-4 App-menu">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item me-2">
+                    <Link to="/" className="nav-link" aria-current="page">
+                      <FontAwesomeIcon icon={faHome} className="me-1" />
+                      Home
+                    </Link>
+                  </li>
+                  <li className="nav-item position-relative me-2">
+                    <Link to="/menu" className="nav-link">
+                      <FontAwesomeIcon
+                        icon={faConciergeBell}
+                        className="me-1"
+                      />
+                      Menu
+                    </Link>
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                      {menu.length}
+                      <span className="visually-hidden">unread messages</span>
+                    </span>
+                  </li>
+                  <li className="nav-item me-2">
+                    <Link to="/search/" className="nav-link">
+                      <FontAwesomeIcon icon={faSearch} className="me-1" />
+                      Searchs
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="col-xs-12 col-lg-4 App-session pe-lg-5">
+                <button
+                  type="button"
+                  className="btn btn-outline-warning"
+                  onClick={handleLoginOut}
+                >
+                  Log out
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
     </>
   );
 }
