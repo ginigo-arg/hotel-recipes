@@ -39,12 +39,30 @@ export default function Menu() {
           </Modal.Header>
           <Modal.Body>
             <form>
-              <input type="text" placeholder="Name" className="w-100"></input>
+              <input
+                type="text"
+                placeholder="Name"
+                className="form-control w-100 mb-2"
+              ></input>
+              <input
+                type="email"
+                placeholder="email: challenge@alkemy.org"
+                className="form-control w-100 mb-2"
+              ></input>
+              <input
+                type="tel"
+                placeholder="phone eg: 3815-6343243"
+                className="form-control w-100 mb-2"
+              ></input>
+              <textarea
+                className="form-control"
+                style={{ height: "150px" }}
+                placeholder="Put here some detail"
+              ></textarea>
+              <button className="btn btn-success">Send</button>
             </form>
           </Modal.Body>
-          <Modal.Footer>
-            <button className="btn btn-success">Send</button>
-          </Modal.Footer>
+          <Modal.Footer></Modal.Footer>
         </Modal>
       </div>
     </>
