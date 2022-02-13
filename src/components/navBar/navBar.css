@@ -29,6 +29,7 @@ a {
     position: fixed;
     bottom: 0;
     background-color: #198754;
+    z-index: 9999;
   }
 
   .row {

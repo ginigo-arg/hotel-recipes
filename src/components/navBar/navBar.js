@@ -65,7 +65,7 @@ export default function NavBar() {
               <div className="col-xs-12 col-lg-4 App-session pe-lg-5">
                 <button
                   type="button"
-                  className="btn btn-outline-warning"
+                  className="btn btn-warning"
                   onClick={handleLoginOut}
                 >
                   Log out

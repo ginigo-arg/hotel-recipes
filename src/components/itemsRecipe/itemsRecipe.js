@@ -1,14 +1,14 @@
-import { useContext, useState} from "react";
+import { useContext, useState } from "react";
 import MenuContext from "../../context/MenuContext";
-import DetailContext, { DetailContextProvider } from "../../context/DetailContext"
+import DetailContext, {
+  DetailContextProvider,
+} from "../../context/DetailContext";
 import "./itemRecipe.css";
 import parse from "html-react-parser";
 import swal from "sweetalert";
-import {Link, useLocation} from "react-router-dom"
-import {Toast, ToastContainer} from "react-bootstrap"
-import Logo from '../../sponnacular-logo.png'
-
-
+import { Link, useLocation } from "react-router-dom";
+import { Toast, ToastContainer } from "react-bootstrap";
+import Logo from "../../sponnacular-logo.png";
 
 export default function ItemsRecipe({
   id,
@@ -22,9 +22,9 @@ export default function ItemsRecipe({
   pricePerServing,
 }) {
   const { menu, setMenu } = useContext(MenuContext);
-  const {detail, setDetail, setLocation} = useContext(DetailContext)
-  const location = useLocation()
-  const [showPush, setShowPush] = useState(false)
+  const { detail, setDetail, setLocation } = useContext(DetailContext);
+  const location = useLocation();
+  const [showPush, setShowPush] = useState(false);
 
   const handleAddMenu = () => {
     if (menu.length < 4) {
@@ -54,8 +54,9 @@ export default function ItemsRecipe({
     }
   };
 
-  const handleDetail = () =>{
-    const details = { id,
+  const handleDetail = () => {
+    const details = {
+      id,
       img,
       title,
       summary,
@@ -63,16 +64,18 @@ export default function ItemsRecipe({
       readyInMinutes,
       servings,
       vegan,
-      pricePerServing,}
+      pricePerServing,
+    };
 
-      setDetail(details)
-      setLocation(location)
-  }
-  const toggleShowPush = () => {setShowPush(!showPush)}
+    setDetail(details);
+    setLocation(location);
+  };
+  const toggleShowPush = () => {
+    setShowPush(!showPush);
+  };
 
   return (
     <>
-   
       <div className="container mt-3 box ">
         <div className="row Card-item">
           <div
@@ -99,19 +102,25 @@ export default function ItemsRecipe({
             <div className="Card-text">{parse(`<p>${summary}</p>`)}</div>
             <div className="Card-footer mt-3 mb-2 d-flex justify-content-end">
               <Link to={`/detail/${title}/${id}`}>
-                <button onClick={handleDetail} type="button" className="btn btn-outline-success me-2" data-bs-toggle="tooltip" data-bs-placement="bottom $tooltip-bg: $black" title="Click here to see more">Detail</button>
-              
+                <button
+                  onClick={handleDetail}
+                  type="button"
+                  className="btn btn-outline-success me-2"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="bottom $tooltip-bg: $black"
+                  title="Click here to see more"
+                >
+                  Detail
+                </button>
               </Link>
               <button
                 type="button"
                 className="btn btn-success Btn-addMenu"
                 variant="success"
-                onClick={()=>{
-                  
-                  handleAddMenu()
-                
-                  toggleShowPush(!showPush)
-                  
+                onClick={() => {
+                  handleAddMenu();
+
+                  toggleShowPush(!showPush);
                 }}
               >
                 Add to menu
@@ -120,20 +129,19 @@ export default function ItemsRecipe({
           </div>
         </div>
       </div>
-      <ToastContainer className="position-fixed bottom-0 end-0 m-4" position="bottom-end">
-    <Toast show={showPush} onClose={toggleShowPush} >
+      <ToastContainer
+        className="position-fixed top-0 end-0 m-2"
+        position="top-right"
+      >
+        <Toast show={showPush} onClose={toggleShowPush}>
           <Toast.Header>
-            <img
-              src={Logo}
-              className="rounded me-2 w-25"
-              alt=""
-            />
+            <img src={Logo} className="rounded me-2 w-25" alt="" />
             <strong className="me-auto">Boot</strong>
             <small>just now</small>
           </Toast.Header>
           <Toast.Body>Woohoo, you recipe has been add To Menu</Toast.Body>
         </Toast>
-    </ToastContainer>
+      </ToastContainer>
     </>
   );
 }

@@ -9,16 +9,16 @@ export default function TotalsMenu() {
   console.log("menu en totales:", menu);
 
   if (menu.length === 0) {
-    var totalScore = 0;
-    var totalPrice = 0;
-    var totalMinutes = 0;
-    var items = 0;
+    totalScore = 0;
+    totalPrice = 0;
+    totalMinutes = 0;
+    items = 0;
   }
   useEffect(() => {}, [data, menu]);
 
   return (
     <>
-      <div className="container border rounded my-4">
+      <div className="row border rounded my-4 m-1">
         <h3>Totales</h3>
         <h6>Total Health: {totalScore}</h6>
         <h6>
