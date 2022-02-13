@@ -1,7 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./searchRecipes.css";
 
 export default function SearchRecipes() {
@@ -21,7 +20,7 @@ export default function SearchRecipes() {
   return (
     <div className="container my-4">
       <div className="row d-flex justify-content-center">
-        <div className="col-6">
+        <div className="col-xs-12 col-lg-6">
           <form onSubmit={handleSubmit}>
             <input
               className="form-control"

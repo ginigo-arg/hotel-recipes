@@ -1,26 +1,19 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { DetailContextProvider } from "../../context/DetailContext";
+import { useEffect } from "react";
 import DetailRecipe from "../../components/detailRecipe/DetailRecipe";
 import NavBar from "../../components/navBar/navBar";
 
 export default function DetailPage() {
-
-  useEffect(() => {
-   
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
-    <div className="container">
+      <div className="container">
+        <header>
+          <NavBar />
+        </header>
 
-    <header>
-      <NavBar/>
-    </header>
-
-      <DetailRecipe />
-    
-    </div>
+        <DetailRecipe />
+      </div>
     </>
   );
 }

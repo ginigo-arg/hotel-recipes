@@ -11,11 +11,8 @@ export default function SearchResults() {
   const { recipes, loading } = useRecipes({ keyword });
   return (
     <>
-      <div className="container">
-        <header>
-          <NavBar />
-        </header>
-      </div>
+      <NavBar />
+
       <SearchRecipes />
       <div className="container Recipe-result d-flex justify-content-center">
         {loading ? <Spinner /> : <ListRecipes recipes={recipes} />}

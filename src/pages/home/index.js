@@ -1,8 +1,5 @@
 import React from "react";
 import ListRecipes from "../../components/listRecipes/listRecipes";
-import MenuList from "../../components/menu/menu";
-import TotalsMenu from "../../components/totalsMenu/totalsMenu";
-import { useRecipes } from "../../hooks/useRecipes";
 import NavBar from "../../components/navBar/navBar";
 import SearchRecipes from "../../components/searchRecipes/searchRecipes";
 import { useEffect, useState } from "react";
