@@ -7,11 +7,8 @@ export default function DetailPage() {
 
   return (
     <>
+      <NavBar />
       <div className="container">
-        <header>
-          <NavBar />
-        </header>
-
         <DetailRecipe />
       </div>
     </>

@@ -2,7 +2,9 @@ import MenuList from "../../components/menu/menu";
 import NavBar from "../../components/navBar/navBar";
 import TotalsMenu from "../../components/totalsMenu/totalsMenu";
 import { Modal } from "react-bootstrap";
+import { Formik, Form } from "formik";
 import { useState } from "react";
+import FormMenu from "../../components/FormMenu/FormMenu";
 
 export default function Menu() {
   const [show, setShow] = useState(false);
@@ -38,29 +40,7 @@ export default function Menu() {
             <Modal.Title>Complete with your data</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form>
-              <input
-                type="text"
-                placeholder="Name"
-                className="form-control w-100 mb-2"
-              ></input>
-              <input
-                type="email"
-                placeholder="email: challenge@alkemy.org"
-                className="form-control w-100 mb-2"
-              ></input>
-              <input
-                type="tel"
-                placeholder="phone eg: 3815-6343243"
-                className="form-control w-100 mb-2"
-              ></input>
-              <textarea
-                className="form-control"
-                style={{ height: "150px" }}
-                placeholder="Put here some detail"
-              ></textarea>
-              <button className="btn btn-success">Send</button>
-            </form>
+            <FormMenu />
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal>

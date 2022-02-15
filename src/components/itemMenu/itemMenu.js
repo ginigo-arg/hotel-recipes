@@ -57,7 +57,7 @@ export default function ItemMenu({
               <div className="container w-50">
                 <div className="row d-flex flex-direcction-column justify-content-end align-items-end">
                   <span className="badge bg-success h-25 w-50 pe-0 ps-0 d-block">
-                    USD${pricePerServing}
+                    USD${(pricePerServing / 100).toFixed(2)}
                   </span>
 
                   <button
