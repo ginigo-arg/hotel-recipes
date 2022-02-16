@@ -44,7 +44,7 @@ export default function ItemsRecipe({
     } else {
       swal({
         title: "We're Sorry",
-        text: "This Menus is Empty",
+        text: "This Menu is Full",
         icon: "error",
         button: {
           text: "Ok",
