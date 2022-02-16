@@ -5,7 +5,7 @@ import MenuData from "../../context/MenuData";
 export default function TotalsMenu() {
   const { menu } = useContext(MenuContext);
   const { data } = useContext(MenuData);
-  var { totalScore, totalPrice, totalMinutes, items } = data;
+  let { totalScore, totalPrice, totalMinutes, items } = data;
   console.log("menu en totales:", menu);
 
   if (menu.length === 0) {

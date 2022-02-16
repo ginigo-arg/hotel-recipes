@@ -1,13 +1,27 @@
+import React, { useContext, useEffect } from "react";
 import MenuList from "../../components/menu/menu";
 import NavBar from "../../components/navBar/navBar";
 import TotalsMenu from "../../components/totalsMenu/totalsMenu";
 import { Modal } from "react-bootstrap";
 import { Formik, Form } from "formik";
 import { useState } from "react";
+import MenuContext from "../../context/MenuContext";
 import FormMenu from "../../components/FormMenu/FormMenu";
+import MenuData from "../../context/MenuData";
 
 export default function Menu() {
   const [show, setShow] = useState(false);
+  const [botonDisable, setBotonDisable] = useState(true);
+  const { menu } = useContext(MenuContext);
+  const { data } = useContext(MenuData);
+
+  useEffect(() => {
+    if (menu.length > 0) {
+      setBotonDisable(false);
+    } else {
+      setBotonDisable(true);
+    }
+  }, [menu.length]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -19,11 +33,21 @@ export default function Menu() {
         <h3>Menu</h3>
         <div className="row list-menu border rounded py-3 d-flex flex-direction-column justify-content-evenly flex-wrap">
           <div className="col-xs-12 col-lg-7">
-            <MenuList />
+            {menu.length > 0 ? (
+              <MenuList />
+            ) : (
+              <div className="alert alert-secondary" role="alert">
+                This Menu is Empty
+              </div>
+            )}
           </div>
           <div className="col-xs-12 col-md-12 col-lg-4">
             <TotalsMenu />
-            <button className="btn btn-dark" onClick={handleShow}>
+            <button
+              className="btn btn-dark"
+              onClick={handleShow}
+              disabled={botonDisable}
+            >
               Place order
             </button>
           </div>
