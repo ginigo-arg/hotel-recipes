@@ -22,29 +22,65 @@ export default function ItemsRecipe({
   pricePerServing,
 }) {
   const { menu, setMenu } = useContext(MenuContext);
-  const { detail, setDetail, setLocation } = useContext(DetailContext);
+  const { setDetail, setLocation } = useContext(DetailContext);
   const location = useLocation();
   const [showPush, setShowPush] = useState(false);
 
-  const handleAddMenu = () => {
-    if (menu.length < 4) {
-      const newItem = {
-        id,
-        img,
-        title,
-        summary,
-        healthScore,
-        readyInMinutes,
-        servings,
-        vegan,
-        pricePerServing,
-      };
+  function IsVeganFull(arr) {
+    return arr.filter((item) => item.vegan === true);
+  }
 
-      setMenu([...menu, newItem]);
+  function IsNotVegan(arr) {
+    return arr.filter((item) => item.vegan === false);
+  }
+
+  const handleAddMenu = () => {
+    const newItem = {
+      id,
+      img,
+      title,
+      summary,
+      healthScore,
+      readyInMinutes,
+      servings,
+      vegan,
+      pricePerServing,
+    };
+    let vegans = IsVeganFull(menu);
+    let notVegans = IsNotVegan(menu);
+    console.log("vegans:", vegans);
+
+    if (menu.length < 4) {
+      if (newItem.vegan && vegans.length <= 1) {
+        setMenu([...menu, newItem]);
+      } else if (newItem.vegan && vegans.length >= 2) {
+        swal({
+          title: "Attention",
+          text: "Exceded limit recipe vegan",
+          icon: "error",
+          button: {
+            text: "Ok",
+            className: "btn btn-success btn-alert",
+          },
+        });
+      }
+      if (!newItem.vegan && notVegans.length <= 1) {
+        setMenu([...menu, newItem]);
+      } else if (!newItem.vegan && notVegans.length >= 2) {
+        swal({
+          title: "We're Sorry",
+          text: "Exceded limit recipe not vegan",
+          icon: "error",
+          button: {
+            text: "Ok",
+            className: "btn btn-success btn-alert",
+          },
+        });
+      }
     } else {
       swal({
         title: "We're Sorry",
-        text: "This Menu is Full",
+        text: "Menu Full",
         icon: "error",
         button: {
           text: "Ok",

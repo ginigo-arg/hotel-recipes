@@ -24,8 +24,6 @@ export default function ItemMenu({
 
   const handleRemoveItem = () => {
     const newMenu = removeItemFromMenu(menu, id);
-    console.log("newMenu:", newMenu);
-
     setMenu(newMenu);
   };
   return (
