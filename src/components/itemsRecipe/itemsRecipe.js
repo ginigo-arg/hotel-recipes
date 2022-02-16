@@ -120,7 +120,10 @@ export default function ItemsRecipe({
                 onClick={() => {
                   handleAddMenu();
 
-                  toggleShowPush(!showPush);
+                  toggleShowPush();
+                  console.log("Toast OK");
+                  setTimeout(() => setShowPush(false), 2000);
+                  console.log("toast bad");
                 }}
               >
                 Add to menu

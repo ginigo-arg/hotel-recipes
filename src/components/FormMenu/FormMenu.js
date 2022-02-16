@@ -41,9 +41,8 @@ export default function FormMenu() {
           setTimeout(() => setSendForm(false), 3000);
         }}
       >
-        {({ errors }) => (
+        {({ errors, touched }) => (
           <Form>
-            {console.log(errors)}
             <div className="mb-3">
               <label className="form-label">Your Name</label>
               <Field
@@ -53,14 +52,12 @@ export default function FormMenu() {
                 placeholder="Name"
               />
             </div>
-            <ErrorMessage
-              name="name"
-              component={() => {
-                <div className="alert alert-danger" role="alert">
-                  {errors.name}
-                </div>;
-              }}
-            />
+            {touched.name && errors.name && (
+              <div className="alert alert-danger" role="alert">
+                {errors.name}
+              </div>
+            )}
+
             <div className="mb-3">
               <label className="form-label">Your Email</label>
               <Field
@@ -70,14 +67,11 @@ export default function FormMenu() {
                 placeholder="challenge@alkemy.org"
               />
             </div>
-            <ErrorMessage
-              name="email"
-              component={() => {
-                <div className="alert alert-danger" role="alert">
-                  {errors.email}
-                </div>;
-              }}
-            />
+            {touched.email && errors.email && (
+              <div className="alert alert-danger" role="alert">
+                {errors.email}
+              </div>
+            )}
 
             <div className="mb-3">
               <label className="form-label">Some detail</label>

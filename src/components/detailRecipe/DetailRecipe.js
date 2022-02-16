@@ -100,6 +100,7 @@ export default function DetailRecipe() {
               onClick={() => {
                 handleAddMenu();
                 toggleShowPush();
+                setTimeout(() => setShowPush(false), 2000);
               }}
             >
               AddToMenu
