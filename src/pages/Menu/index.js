@@ -26,7 +26,7 @@ export default function Menu() {
   return (
     <>
       <NavBar />
-      <div className="container my-4">
+      <div className="container my-5">
         <h3>Menu</h3>
         <div className="row list-menu border rounded py-3 d-flex flex-direction-column justify-content-evenly flex-wrap">
           <div className="col-xs-12 col-lg-7">

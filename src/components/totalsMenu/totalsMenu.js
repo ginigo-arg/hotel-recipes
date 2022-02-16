@@ -21,9 +21,11 @@ export default function TotalsMenu() {
         <h3>Totales</h3>
         <h6>Total Health: {totalScore}</h6>
         <h6>
-          Ready In Aprox: {totalMinutes !== 0 ? totalMinutes / items : 0}min.
+          Ready In Aprox:{" "}
+          {totalMinutes !== 0 ? (totalMinutes / items).toFixed(2) : 0}min.
         </h6>
-        <h6>Total Price: USD${totalPrice}</h6>
+
+        <h6>Total Price: USD${(totalPrice / 100).toFixed(2)}</h6>
       </div>
     </>
   );
