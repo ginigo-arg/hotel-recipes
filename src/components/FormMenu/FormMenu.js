@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Formik, Form, Field, validateYupSchema } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import swal from "sweetalert";
 
 export default function FormMenu() {
@@ -41,53 +41,56 @@ export default function FormMenu() {
           setTimeout(() => setSendForm(false), 3000);
         }}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleSubmit,
-          handleChange,
-          handleBlur,
-        }) => (
-          <form onSubmit={handleSubmit}>
+        {({ errors }) => (
+          <Form>
             {console.log(errors)}
-            <div>
+            <div className="mb-3">
               <label className="form-label">Your Name</label>
-              <input
+              <Field
                 className="form-control"
                 name="name"
                 type="text"
                 placeholder="Name"
-                value={values.name}
-                onChange={handleChange}
-                onBlur={handleBlur}
               />
             </div>
-            {touched.name && errors.name && (
-              <div className="alert alert-danger" role="alert">
-                {errors.name}
-              </div>
-            )}
-            <div>
+            <ErrorMessage
+              name="name"
+              component={() => {
+                <div className="alert alert-danger" role="alert">
+                  {errors.name}
+                </div>;
+              }}
+            />
+            <div className="mb-3">
               <label className="form-label">Your Email</label>
-              <input
+              <Field
                 className="form-control"
                 name="email"
                 type="email"
                 placeholder="challenge@alkemy.org"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
               />
             </div>
-            {touched.email && errors.email && (
-              <div class="alert alert-danger" role="alert">
-                {errors.email}
-              </div>
-            )}
+            <ErrorMessage
+              name="email"
+              component={() => {
+                <div className="alert alert-danger" role="alert">
+                  {errors.email}
+                </div>;
+              }}
+            />
+
+            <div className="mb-3">
+              <label className="form-label">Some detail</label>
+              <Field
+                name="mensaje"
+                as="textarea"
+                placeholder="your detail"
+                className="form-control"
+              />
+            </div>
             <button className="btn btn-success my-2">Send</button>
             {sendForm === true && <div>mensaje enviado con exito</div>}
-          </form>
+          </Form>
         )}
       </Formik>
     </>
