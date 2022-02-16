@@ -33,6 +33,9 @@ export default function ItemsRecipe({
   function IsNotVegan(arr) {
     return arr.filter((item) => item.vegan === false);
   }
+  function isEqual(arr, id) {
+    return arr.find((item) => item.id === id);
+  }
 
   const handleAddMenu = () => {
     const newItem = {
@@ -48,9 +51,9 @@ export default function ItemsRecipe({
     };
     let vegans = IsVeganFull(menu);
     let notVegans = IsNotVegan(menu);
-    console.log("vegans:", vegans);
+    const equal = isEqual(menu, newItem.id);
 
-    if (menu.length < 4) {
+    if (menu.length < 4 && !equal) {
       if (newItem.vegan && vegans.length <= 1) {
         setMenu([...menu, newItem]);
       } else if (newItem.vegan && vegans.length >= 2) {
@@ -77,6 +80,16 @@ export default function ItemsRecipe({
           },
         });
       }
+    } else if (equal) {
+      swal({
+        title: "We're Sorry",
+        text: "This Recipe already in menu",
+        icon: "error",
+        button: {
+          text: "Ok",
+          className: "btn btn-success btn-alert",
+        },
+      });
     } else {
       swal({
         title: "We're Sorry",
