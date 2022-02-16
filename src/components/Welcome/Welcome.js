@@ -25,9 +25,9 @@ export default function Welcome() {
           <li>
             The Menu should have 2 recipes vegans and 2 recipes not vegans.
           </li>
-          <li>Once your menu is ready, you can place your order.</li>
           <li>You can search your favorite recipes with our searcher.</li>
           <li>Also view recipe detail doing click on detail button.</li>
+          <li>Once your menu is ready, you can place your order.</li>
           <span>So that's all, enjoy our App 😊</span>
         </ul>
       </Modal.Body>

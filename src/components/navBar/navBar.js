@@ -18,6 +18,7 @@ export default function NavBar() {
   useEffect(() => {}, [menu]);
 
   const handleLoginOut = () => {
+    localStorage.removeItem("modalAbierto");
     localStorage.removeItem("token");
     navigate("/login");
   };
