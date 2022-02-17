@@ -41,7 +41,7 @@ export default function LoginForm() {
             )
           ) {
             errores.email =
-              "Email can only contain letters, numbers, periods, hyphens and underscores";
+              "Email can only contain letters, numbers, dots, hyphens and underscores";
           }
 
           //validar longitus password
@@ -53,12 +53,12 @@ export default function LoginForm() {
           return errores;
         }}
         onSubmit={(valores, { resetForm }) => {
-          const datos = { email: valores.email, password: valores.password };
+          const data = { email: valores.email, password: valores.password };
           setUser({
             ...user,
             loading: true,
           });
-          postLogin(datos).then((datos) => {
+          postLogin(data).then((datos) => {
             setUser(datos);
             console.log("datos:", datos);
           });
@@ -71,7 +71,7 @@ export default function LoginForm() {
               <Field
                 type="text"
                 name="email"
-                placeholder="correo@correo.com"
+                placeholder="E-mail"
                 className="form-control"
                 value={values.email}
               />
@@ -85,7 +85,7 @@ export default function LoginForm() {
               <Field
                 type="password"
                 name="password"
-                placeholder="*******"
+                placeholder="Password"
                 className="form-control"
                 value={values.password}
               />
@@ -103,6 +103,11 @@ export default function LoginForm() {
           </Form>
         )}
       </Formik>
+      {user.data.error && (
+        <div className="alert alert-danger mt-3 text-center" role="alert">
+          <span>Usser or Password incorrect</span>
+        </div>
+      )}
     </>
   );
 }

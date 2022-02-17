@@ -22,9 +22,7 @@ export default function Welcome() {
         <h6>Here get you some recommendations:</h6>
         <ul>
           <li>You can Add Up to 4 items in the menu.</li>
-          <li>
-            The Menu should have 2 recipes vegans and 2 recipes not vegans.
-          </li>
+          <li>The Menu must have 2 recipes vegans and 2 recipes not vegans.</li>
           <li>You can search your favorite recipes with our searcher.</li>
           <li>Also view recipe detail doing click on detail button.</li>
           <li>Once your menu is ready, you can place your order.</li>
