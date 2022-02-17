@@ -4,9 +4,12 @@ const Context = createContext({});
 
 export function MenuContextProvider({ children }) {
   const [menu, setMenu] = useState([]);
+  const [orderOk, setOrderOk] = useState(false);
 
   return (
-    <Context.Provider value={{ menu, setMenu }}>{children}</Context.Provider>
+    <Context.Provider value={{ menu, setMenu, orderOk, setOrderOk }}>
+      {children}
+    </Context.Provider>
   );
 }
 export default Context;

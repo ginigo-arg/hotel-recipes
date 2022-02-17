@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import swal from "sweetalert";
+import MenuContext from "../../context/MenuContext";
 
 export default function FormMenu() {
-  const [sendForm, setSendForm] = useState(false);
+  const { setOrderOk, setMenu } = useContext(MenuContext);
 
   function congrulation() {
     return swal({
@@ -50,7 +51,8 @@ export default function FormMenu() {
         onSubmit={(e, { resetForm }) => {
           resetForm();
           congrulation();
-          // setTimeout(() => setSendForm(false), 3000);
+          setOrderOk(true);
+          setMenu([]);
         }}
       >
         {({ errors, touched, on }) => (
@@ -113,7 +115,6 @@ export default function FormMenu() {
           </Form>
         )}
       </Formik>
-      {/* <div>{sendForm === true && congrulation()}</div> */}
     </>
   );
 }

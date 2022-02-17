@@ -10,7 +10,7 @@ import FormMenu from "../../components/FormMenu/FormMenu";
 export default function Menu() {
   const [show, setShow] = useState(false);
   const [botonDisable, setBotonDisable] = useState(true);
-  const { menu } = useContext(MenuContext);
+  const { menu, orderOk, setOrderOk } = useContext(MenuContext);
 
   useEffect(() => {
     if (menu.length > 0) {
@@ -18,7 +18,7 @@ export default function Menu() {
     } else {
       setBotonDisable(true);
     }
-  }, [menu.length]);
+  }, [menu.length, setOrderOk]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -35,6 +35,15 @@ export default function Menu() {
             ) : (
               <div className="alert alert-secondary" role="alert">
                 This Menu is Empty
+              </div>
+            )}
+            {orderOk && menu.length < 1 && (
+              <div className="alert alert-success mt-2" role="alert">
+                <h4>You order is cooking</h4>
+                <p>We send an email with details your order</p>
+                <p>
+                  <strong>¡Thanks you!</strong>
+                </p>
               </div>
             )}
           </div>
