@@ -1,50 +1,65 @@
 import React, { useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import swal from "sweetalert";
 
 export default function FormMenu() {
   const [sendForm, setSendForm] = useState(false);
+
+  function congrulation() {
+    return swal({
+      title: "Congrulations",
+      text: "Your order has been send",
+      icon: "success",
+      button: {
+        text: "Ok",
+        className: "btn btn-success btn-alert",
+      },
+    });
+  }
 
   return (
     <>
       <Formik
         initialValues={{
           name: "",
-          email: "",
+          tel: "",
+          textarea: "",
         }}
         validate={(valores) => {
           let errores = {};
 
           //validacion nombre
           if (!valores.name) {
-            errores.name = "Por favor ingresa un nombre.";
+            errores.name = "Please input your name.";
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)) {
-            errores.name = "El nombre solo puede contener letras y espacios";
+            errores.name = "Name must be only letters and spaces";
           }
           //validacion correo
-          if (!valores.email) {
-            errores.email = "Por favor ingresa un correo.";
+          if (!valores.tel) {
+            errores.tel = "Please input your phone.";
           } else if (
-            !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-              valores.email
+            !/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/.test(
+              valores.tel
             )
           ) {
-            errores.email =
-              "El correo solo puede contener letras, numeros, puntos, guiones y guion bajo";
+            errores.tel = "Number phone is incorrect";
           }
 
           return errores;
         }}
-        onSubmit={(valores, { resetForm }) => {
+        onSubmit={(e, { resetForm }) => {
           resetForm();
-          setSendForm(true);
-          setTimeout(() => setSendForm(false), 3000);
+          congrulation();
+          // setTimeout(() => setSendForm(false), 3000);
         }}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, on }) => (
           <Form>
             <div className="mb-3">
-              <label className="form-label">Your Name</label>
+              <label className="form-label">
+                Your Name{" "}
+                <span class="badge rounded-pill bg-dark ms-2">obligatory</span>
+              </label>
               <Field
                 className="form-control"
                 name="name"
@@ -59,34 +74,46 @@ export default function FormMenu() {
             )}
 
             <div className="mb-3">
-              <label className="form-label">Your Email</label>
+              <label
+                className="form-label "
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Phone number must be without spaces and simbols"
+              >
+                Your Phone
+                <span class="badge rounded-pill bg-dark ms-2">obligatory</span>
+              </label>
               <Field
                 className="form-control"
-                name="email"
-                type="email"
-                placeholder="challenge@alkemy.org"
+                name="tel"
+                type="tel"
+                placeholder="+54 381 577728"
               />
             </div>
-            {touched.email && errors.email && (
+            {touched.tel && errors.tel && (
               <div className="alert alert-danger" role="alert">
-                {errors.email}
+                {errors.tel}
               </div>
             )}
 
             <div className="mb-3">
-              <label className="form-label">Some detail</label>
+              <label className="form-label">Some detail </label>
               <Field
-                name="mensaje"
+                name="textarea"
                 as="textarea"
                 placeholder="your detail"
                 className="form-control"
               />
             </div>
-            <button className="btn btn-success my-2">Send</button>
-            {sendForm === true && <div>mensaje enviado con exito</div>}
+            <div className="d-flex justify-content-end">
+              <button type="submit" className="btn btn-success my-2">
+                Send
+              </button>
+            </div>
           </Form>
         )}
       </Formik>
+      {/* <div>{sendForm === true && congrulation()}</div> */}
     </>
   );
 }
