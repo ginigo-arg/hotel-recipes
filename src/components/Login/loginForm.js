@@ -1,8 +1,26 @@
 //import { useLogin } from "../../hooks/useLogin";
 import { Field, Formik, Form } from "formik";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import { postLogin } from "../../services/loginService";
 
 export default function LoginForm() {
   //const { handleChange, handleSubmit, user, formValues } = useLogin();
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    data: { token: null },
+    loading: false,
+  });
+
+  useEffect(() => {
+    console.log("user:", user);
+
+    if (user.data.token) {
+      localStorage.setItem("token", JSON.stringify(user.data.token));
+
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   return (
     <>
@@ -16,7 +34,7 @@ export default function LoginForm() {
 
           //validar mail
           if (!valores.email) {
-            errores.email = "Please input email.";
+            errores.email = "Please Field email.";
           } else if (
             !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
               valores.email
@@ -28,13 +46,24 @@ export default function LoginForm() {
 
           //validar longitus password
           if (!valores.password) {
-            errores.password = "Please input password.";
+            errores.password = "Please Field password.";
           } else if (valores.password.length < 5) {
             errores.password = "Password must be at least 5 characters";
           }
           return errores;
         }}
-        onSubmit={() => {}}
+        onSubmit={(valores, { resetForm }) => {
+          const datos = { email: valores.email, password: valores.password };
+          setUser({
+            ...user,
+            loading: true,
+          });
+          postLogin(datos).then((datos) => {
+            setUser(datos);
+            console.log("datos:", datos);
+          });
+          resetForm();
+        }}
       >
         {({ values, touched, errors }) => (
           <Form>
@@ -67,7 +96,7 @@ export default function LoginForm() {
               )}
             </div>
             <div className="d-flex justify-content-end">
-              <button className="btn btn-dark" type="button">
+              <button className="btn btn-dark" disabled={user.loading}>
                 Send
               </button>
             </div>
