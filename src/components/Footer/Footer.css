@@ -1,4 +1,9 @@
-.Footer img {
+.Footer-App {
+  position: relative;
+  bottom: 0;
+}
+
+.Footer-img img {
   width: 10% !important;
 }
 

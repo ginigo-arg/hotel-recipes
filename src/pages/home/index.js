@@ -38,7 +38,9 @@ export default function Home() {
         <h3>Best Pastas</h3>
         <Pasta />
       </div>
-      <Footer />
+      <div className="container">
+        <Footer />
+      </div>
     </>
   );
 }

@@ -6,6 +6,7 @@ import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import MenuContext from "../../context/MenuContext";
 import FormMenu from "../../components/FormMenu/FormMenu";
+import Footer from "../../components/Footer/Footer";
 
 export default function Menu() {
   const [show, setShow] = useState(false);
@@ -60,6 +61,7 @@ export default function Menu() {
             </div>
           </div>
         </div>
+        <Footer className="p-fixed bottom-end" />
       </div>
       <div className="continer d-flex flex-direction-column justify-content-center">
         <Modal

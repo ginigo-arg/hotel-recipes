@@ -55,12 +55,6 @@ export default function NavBar() {
                       <span className="visually-hidden">unread messages</span>
                     </span>
                   </li>
-                  <li className="nav-item me-2">
-                    <Link to="/search/" className="nav-link">
-                      <FontAwesomeIcon icon={faSearch} className="me-1" />
-                      Searchs
-                    </Link>
-                  </li>
                 </ul>
               </div>
               <div className="col-xs-12 col-lg-4 App-session pe-lg-5">
