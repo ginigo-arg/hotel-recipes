@@ -3,7 +3,7 @@
 ## Caracteristicas de la App
 
 - La App contiene 5.000+ recetas.
-- Tiene un costo por cada endpoint realizado.
+- Tiene un costo por cada request.
 - Cuenta con un buscador.
 - Validaciones en los formularios.
 - Navegacion goBack pagina anterior.
