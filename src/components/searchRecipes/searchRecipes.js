@@ -56,16 +56,6 @@ export default function SearchRecipes() {
               </Form>
             )}
           </Formik>
-
-          {/* <form onSubmit={handleSubmit}>
-            <input
-              className="form-control"
-              type="text"
-              onChange={handleChange}
-              placeholder="Search Recipes..."
-              value={keyword}
-            ></input>
-          </form> */}
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import Burger from "../../components/CategoriesFood/burgers";
 import Pizza from "../../components/CategoriesFood/pizza";
 import Pasta from "../../components/CategoriesFood/pasta";
 import Welcome from "../../components/Welcome/Welcome";
+import Footer from "../../components/Footer/Footer";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -37,6 +38,7 @@ export default function Home() {
         <h3>Best Pastas</h3>
         <Pasta />
       </div>
+      <Footer />
     </>
   );
 }

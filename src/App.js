@@ -11,50 +11,51 @@ import RequireJwt from "./components/PrivateRoutes/PrivateRoutes";
 import DetailPage from "./pages/DetailRecipe/Index";
 import { DetailContextProvider } from "./context/DetailContext";
 import Menu from "./pages/Menu";
+import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <>
       <MenuContextProvider>
         <MenuDataProvider>
           <DetailContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route
-                path="/search/:keyword"
-                element={
-                  <RequireJwt>
-                    <SearchResults />
-                  </RequireJwt>
-                }
-              />
-              <Route
-                path="/"
-                element={
-                  <RequireJwt>
-                    <Home />
-                  </RequireJwt>
-                }
-              />
-              <Route
-                path="/menu"
-                element={
-                  <RequireJwt>
-                    <Menu />
-                  </RequireJwt>
-                }
-              />
-              <Route
-                path="/detail/:name/:id"
-                element={
-                  <RequireJwt>
-                    <DetailPage />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route
+                  path="/search/:keyword"
+                  element={
+                    <RequireJwt>
+                      <SearchResults />
                     </RequireJwt>
-                }
-              />
-            </Routes>
-          </BrowserRouter>
-            </DetailContextProvider>
+                  }
+                />
+                <Route
+                  path="/"
+                  element={
+                    <RequireJwt>
+                      <Home />
+                    </RequireJwt>
+                  }
+                />
+                <Route
+                  path="/menu"
+                  element={
+                    <RequireJwt>
+                      <Menu />
+                    </RequireJwt>
+                  }
+                />
+                <Route
+                  path="/detail/:name/:id"
+                  element={
+                    <RequireJwt>
+                      <DetailPage />
+                    </RequireJwt>
+                  }
+                />
+              </Routes>
+            </BrowserRouter>
+          </DetailContextProvider>
         </MenuDataProvider>
       </MenuContextProvider>
     </>

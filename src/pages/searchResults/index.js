@@ -17,6 +17,15 @@ export default function SearchResults() {
       <div className="container Recipe-result d-flex justify-content-center">
         {loading ? <Spinner /> : <ListRecipes recipes={recipes} />}
       </div>
+      <div className="container Recipe-result d-flex justify-content-center">
+        {recipes.length > 0 ? (
+          <ListRecipes recipes={recipes} />
+        ) : (
+          <div class="alert alert-danger" role="alert">
+            We're Sorry don't found any recipe.
+          </div>
+        )}
+      </div>
     </>
   );
 }
