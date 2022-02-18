@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 // import { Route } from "wouter";
 import { MenuContextProvider } from "./context/MenuContext";
 import { MenuDataProvider } from "./context/MenuData";
@@ -11,7 +11,8 @@ import RequireJwt from "./components/PrivateRoutes/PrivateRoutes";
 import DetailPage from "./pages/DetailRecipe/Index";
 import { DetailContextProvider } from "./context/DetailContext";
 import Menu from "./pages/Menu";
-import Footer from "./components/Footer/Footer";
+import NoMatch from "./components/404/NoMatch";
+
 function App() {
   return (
     <>
@@ -53,6 +54,7 @@ function App() {
                     </RequireJwt>
                   }
                 />
+                <Route path="*" element={<NoMatch />} />
               </Routes>
             </BrowserRouter>
           </DetailContextProvider>

@@ -5,12 +5,21 @@ import "./listRecipes.css";
 import { useParams } from "react-router";
 import SearchRecipes from "../../components/searchRecipes/searchRecipes";
 import Spinner from "../../components/Spinner/Spinner";
+import { Helmet } from "react-helmet";
 
 export default function SearchResults() {
   const { keyword } = useParams();
   const { recipes, loading } = useRecipes({ keyword });
+
   return (
     <>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Helmet>
+          <title>Result | {keyword}</title>
+        </Helmet>
+      )}
       <NavBar />
 
       <SearchRecipes />

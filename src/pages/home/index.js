@@ -6,6 +6,7 @@ import Pizza from "../../components/CategoriesFood/pizza";
 import Pasta from "../../components/CategoriesFood/pasta";
 import Welcome from "../../components/Welcome/Welcome";
 import Footer from "../../components/Footer/Footer";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +20,9 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Spoonacular App | Home</title>
+      </Helmet>
       <NavBar />
       <SearchRecipes />
 

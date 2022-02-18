@@ -7,6 +7,7 @@ import { useState } from "react";
 import MenuContext from "../../context/MenuContext";
 import FormMenu from "../../components/FormMenu/FormMenu";
 import Footer from "../../components/Footer/Footer";
+import { Helmet } from "react-helmet";
 
 export default function Menu() {
   const [show, setShow] = useState(false);
@@ -26,6 +27,9 @@ export default function Menu() {
 
   return (
     <>
+      <Helmet>
+        <title>Spoonacular App | Menu</title>
+      </Helmet>
       <NavBar />
       <div className="container my-5">
         <h3>Menu</h3>

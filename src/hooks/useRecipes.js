@@ -4,6 +4,7 @@ import { getRecipes } from "../services/getRecipes";
 export function useRecipes({ keyword, limit }) {
   const [loading, setLoading] = useState(false);
   const [recipes, setRecipes] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(
     function () {
@@ -12,9 +13,12 @@ export function useRecipes({ keyword, limit }) {
         setRecipes(recipes);
         setLoading(false);
       });
+      if (recipes.length < 1) {
+        setError(true);
+      }
     },
-    [keyword, limit]
+    [keyword, limit, recipes.length]
   );
 
-  return { recipes, loading };
+  return { recipes, loading, error };
 }
