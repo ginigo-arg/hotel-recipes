@@ -34,7 +34,7 @@
 To clone and run this application, you'll need [Git](https://git-scm.com/downloads) and [React](https://es.reactjs.org/). From your command line:
 ```
 # Clone this repository
-$ git clone https://github.com/Ansh-Rathod/Flutter-Bloc-Recipe-app.git
+$ git clone https://github.com/ginigo-arg/hotel-recipes.git
 
 # Go into the repository
 $ cd hotel-recipe
