@@ -18,7 +18,7 @@ export default function SearchRecipes() {
   // };
 
   return (
-    <div className="container my-4">
+    <div className="container mt-4 mb-0">
       <div className="row d-flex justify-content-center">
         <div className="col-xs-12 col-lg-6">
           <Formik

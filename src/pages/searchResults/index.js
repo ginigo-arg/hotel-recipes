@@ -14,6 +14,9 @@ export default function SearchResults() {
       <NavBar />
 
       <SearchRecipes />
+      <div className="container mt-4 pe-0 mb-0">
+        <p> ●Results for {keyword}</p>
+      </div>
       <div className="container Recipe-result d-flex justify-content-center">
         {loading ? <Spinner /> : <ListRecipes recipes={recipes} />}
       </div>
