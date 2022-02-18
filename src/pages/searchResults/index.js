@@ -33,7 +33,7 @@ export default function SearchResults() {
         {recipes.length > 0 ? (
           <ListRecipes recipes={recipes} />
         ) : (
-          <div class="alert alert-danger" role="alert">
+          <div className="alert alert-danger" role="alert">
             We're Sorry don't found any recipe.
           </div>
         )}

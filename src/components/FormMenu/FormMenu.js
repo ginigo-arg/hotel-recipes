@@ -60,7 +60,9 @@ export default function FormMenu() {
             <div className="mb-3">
               <label className="form-label">
                 Your Name{" "}
-                <span class="badge rounded-pill bg-dark ms-2">obligatory</span>
+                <span className="badge rounded-pill bg-dark ms-2">
+                  obligatory
+                </span>
               </label>
               <Field
                 className="form-control"
@@ -83,13 +85,15 @@ export default function FormMenu() {
                 title="Phone number must be without spaces and simbols"
               >
                 Your Phone
-                <span class="badge rounded-pill bg-dark ms-2">obligatory</span>
+                <span className="badge rounded-pill bg-dark ms-2">
+                  obligatory
+                </span>
               </label>
               <Field
                 className="form-control"
                 name="tel"
                 type="tel"
-                placeholder="+54 381 577728"
+                placeholder="54381577728"
               />
             </div>
             {touched.tel && errors.tel && (
