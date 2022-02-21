@@ -69,7 +69,7 @@ export default function ItemsRecipe({
         setMenu([...menu, newItem]);
       } else if (!newItem.vegan && notVegans.length >= 2) {
         swal({
-          title: "We're Sorry",
+          title: "Attention",
           text: "Exceded limit recipe not vegan",
           icon: "error",
           button: {
