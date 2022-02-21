@@ -45,7 +45,7 @@ export default function Menu() {
             {orderOk && menu.length < 1 && (
               <div className="alert alert-success mt-2" role="alert">
                 <h4>You order is cooking</h4>
-                <p>We send an email with details your order</p>
+                <p>We send an message with your order details</p>
                 <p>
                   <strong>¡Thanks you!</strong>
                 </p>

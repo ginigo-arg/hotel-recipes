@@ -1,8 +1,6 @@
 import { useContext, useState } from "react";
 import MenuContext from "../../context/MenuContext";
-import DetailContext, {
-  DetailContextProvider,
-} from "../../context/DetailContext";
+import DetailContext from "../../context/DetailContext";
 import "./itemRecipe.css";
 import parse from "html-react-parser";
 import swal from "sweetalert";
