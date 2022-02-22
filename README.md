@@ -8,9 +8,11 @@
 - Validaciones en los formularios.
 - Navegacion goBack pagina anterior.
 - Cuenta con un menu para agregar las recetas.
+- El menu debe tener como maximo 4 recetas, 2 veganas y 2 no veganas.
 - Acumuladores para ver totales.
 - Pagina de logueo.
 - Controlador de rutas.
+
 
 
 ## ScreenShots 
