@@ -33,7 +33,7 @@
 
 ## How to use
 
-To clone and run this application, you'll need [Git](https://git-scm.com/downloads) and [React](https://es.reactjs.org/). From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com/downloads) and [Node](https://nodejs.org/es/). From your command line:
 ```
 # Clone this repository
 $ git clone https://github.com/ginigo-arg/hotel-recipes.git
