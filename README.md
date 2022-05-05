@@ -8,9 +8,11 @@
 - Validaciones en los formularios.
 - Navegacion goBack pagina anterior.
 - Cuenta con un menu para agregar las recetas.
+- El menu debe tener como maximo 4 recetas, 2 veganas y 2 no veganas.
 - Acumuladores para ver totales.
 - Pagina de logueo.
 - Controlador de rutas.
+
 
 
 ## ScreenShots 
@@ -31,7 +33,7 @@
 
 ## How to use
 
-To clone and run this application, you'll need [Git](https://git-scm.com/downloads) and [React](https://es.reactjs.org/). From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com/downloads) and [Node](https://nodejs.org/es/). From your command line:
 ```
 # Clone this repository
 $ git clone https://github.com/ginigo-arg/hotel-recipes.git
